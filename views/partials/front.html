@@ -1,1 +1,28 @@
-<div class="container"> Hello world! </div>
+<div class="container">
+	<div class="wrap">
+
+		<form id="intro">
+			<h1>Penny Dash</h1>
+			<fieldset id="inputs">
+				<input id="origin" type="text" placeholder="Start">   
+				<input id="destination" type="password" placeholder="End" required>
+			</fieldset>
+			<fieldset id="actions">
+				<a id="submit" class="button">
+					Take me there
+				</a>
+				<a id="about">?</a>
+			</fieldset>
+		</form>
+
+		<nav class="top-bar">
+			<div class="wrap">
+				<a id="back">&#8592;</a>
+			</div>
+		</nav>
+		<div class="map">
+			<iframe src="https://mapsengine.google.com/map/u/0/embed?mid=zMDbJNohdfk0.kRytxkgJiWAg" width="100%" height="480"></iframe>
+		</div>
+
+	</div>
+</div>
