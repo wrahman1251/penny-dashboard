@@ -14,6 +14,7 @@
     "ejs": "~0.8.4",
     "express": "^4.9.0",
     "express-session": "1.2.x",
+    "googlemaps": "~0.1.20",
     "helmet": "0.3.x",
     "method-override": "1.0.x",
     "morgan": "1.0.1",
