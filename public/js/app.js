@@ -1,7 +1,7 @@
 'use strict';
 /*global angular*/
 
-var app = angular.module('yourApplicationName', [
+var app = angular.module('pennyDash', [
   'controllers.front',
   'ngResource',
   'ngSanitize',

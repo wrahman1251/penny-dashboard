@@ -10,7 +10,6 @@ var helmet = require('helmet');
 var methodOverride = require('method-override');
 var morgan = require('morgan');
 var path = require('path');
-var passport = require('passport');
 var session = require('express-session');
 var settings = require('./settings/exports');
 
@@ -35,10 +34,7 @@ var config = {
       key: 'sid'
     }));
     app.use(flash());
-    app.use(passport.initialize());
-    app.use(passport.session());
   },
-  passport: passport,
   settings: settings
 }
 
