@@ -17,6 +17,7 @@
     "helmet": "0.3.x",
     "method-override": "1.0.x",
     "morgan": "1.0.1",
+    "myo": "~1.0.0",
     "multiline": "^1.0.0",
     "request": "latest",
     "rootpath": "0.1.2"
