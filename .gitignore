@@ -1,0 +1,10 @@
+.DS_Store
+*.swp
+*.swo
+.sass-cache/
+node_modules/
+data/
+data/flickr/
+public/bower_components/
+public/css/.sass_cache/
+public/css/main.css
