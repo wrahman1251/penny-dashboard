@@ -16,3 +16,6 @@ app.use(errorHandler);
 
 app.listen(configs.settings.secrets.port);
 console.log('listening on port ' + configs.settings.secrets.port);
+
+//map
+var myAppModule = angular.module('app.ui-map', ['ui.map']);  

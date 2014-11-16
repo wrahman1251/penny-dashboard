@@ -18,7 +18,6 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
     var height = $(window).height() - $('.directive').outerHeight() - $('.top-bar').outerHeight();
     $('.map iframe').attr('height',height);
   });
-
   $scope.address;
   $scope.red = false;
   $scope.goAway = false;
