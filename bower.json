@@ -2,7 +2,7 @@
   "name": "ics",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "~1.2.1",
+    "angular": "~1.2.23",
     "json3": "~3.3.2",
     "jquery": "~2.1.1",
     "sass-bootstrap": "~3.0.0",
@@ -10,7 +10,8 @@
     "angular-sanitize": "~1.2.0",
     "angular-route": "~1.2.0",
     "angular-http-auth": "*",
-    "angular-bootstrap": "~0.7.0"
+    "angular-bootstrap": "~0.7.0",
+    "ngCordova": "~0.1.7-alpha"
   },
   "devDependencies": {
   }

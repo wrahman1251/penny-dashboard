@@ -16,7 +16,9 @@ npm install
 
 bower install
 
-sass public/css/main.scss > public/css/main.css
+sudo npm install -g cordova
+
+cordova plugin add org.apache.cordova.geolocation
 
 to run server:
 
