@@ -11,6 +11,9 @@ imp.turnOffRight();
 //sends message to client with initial directions
 
 function init(req, res, next) {
+  if (req.query.address) {
+    imp.sendAddressWithUnderscores(req.query.address);
+  }
   map.init(req.query.startLat, req.query.startLon, req.query.endLat, req.query.endLon, function(err, result) {
     if (err) { return next(err); }
     res.send({directions: result});
