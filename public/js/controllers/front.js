@@ -1,6 +1,7 @@
 'use strict';
 
-var front = angular.module('controllers.front', ['ngCordova.plugins.geolocation','ui.map','ui.event']);
+var front = angular.module('controllers.front', [
+  'ngCordova.plugins.geolocation','google-maps'.ns()]);
 
 function initFactory($resource) {
   return $resource('/init');
@@ -23,6 +24,7 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
   $scope.goAway = false;
   $scope.error1 = null;
   $scope.directions = null;
+  $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
   var getCurrentPosition = function(callback) {
     $cordovaGeolocation.getCurrentPosition().then(function(position) {
       callback(null, {
@@ -50,7 +52,7 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
       }, function(err) {
         console.log(err);
       });
-    })
+    });
   }
   $scope.grabDestination = function() {
     getCurrentPosition(function(err, result) {
@@ -75,35 +77,7 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
         $scope.red = true;
       }
     });
-
-    var ll;
-    $scope.mapOptions;
-    getCurrentPosition(function(err, result) {
-      if (err) {return err; }
-      ll = new google.maps.LatLng(parseFloat(result.lat), parseFloat(result.lng));
-      $scope.mapOptions = {
-        center: ll,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-    });
-
-    //Markers should be added after map is loaded
-    $scope.onMapIdle = function() {
-        if ($scope.myMarkers === undefined){    
-            var marker = new google.maps.Marker({
-                map: $scope.myMap,
-                position: ll
-            });
-            $scope.myMarkers = [marker, ];
-        }
-    };
-
-    $scope.markerClicked = function(m) {
-        window.alert("clicked");
-    };
   }
-
   //getCurrentPosition();
 }
 

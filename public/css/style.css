@@ -188,6 +188,8 @@ fieldset#actions {
     bottom: 0;
 }
 
+.angular-google-map-container { height: 400px; }
+
 @media screen and (max-width: 600px) {
     body {
         font-size: 1.5em;
