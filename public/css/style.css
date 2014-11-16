@@ -158,6 +158,7 @@ input#submit {
     margin-top: 1em;
     font-weight: 300;
     font-family: Open Sans, sans-serif;
+    -webkit-appearance: none;
 }
 input#submit:focus {
     outline: none;
