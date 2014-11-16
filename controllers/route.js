@@ -1,6 +1,7 @@
 'use strict';
 (require('rootpath')());
 
+var async = require('async');
 var map = require('lib/map');
 var imp = require('lib/electricImp');
 var timeout = require('config/settings/secrets').timeout;
@@ -31,11 +32,34 @@ function ping(req, res, next) {
         imp.turnOffLeft();
         imp.turnOffRight();
       } if (result.leftOrRight === 'left') {
-        imp.turnOnLeft();
-        setTimeout(function() {imp.turnOffLeft();}, timeout)
+        var f1 = function(callback) {
+          imp.turnOnLeft();
+          setTimeout(function() {imp.turnOffLeft(); 
+            setTimeout(function() {
+              callback(null);
+            }, timeout); }, timeout)
+        };
+        async.waterfall(
+        [
+          f1, f1, f1, f1, f1
+        ],
+        function(err) {
+
+        });
       } else if (result.leftOrRight === 'right') {
-        imp.turnOnRight();
-        setTimeout(function() {imp.turnOffRight();}, timeout)
+        var f2 = function(callback) {
+          imp.turnOnRight();
+          setTimeout(function() {imp.turnOffRight(); setTimeout(function() {
+              callback(null);
+            }, timeout);}, timeout)
+        };
+        async.waterfall(
+        [
+          f2, f2, f2, f2, f2
+        ],
+        function(err) {
+
+        });
       }
       var sendObj = {};
       if (result.beep) {
