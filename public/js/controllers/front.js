@@ -1,6 +1,6 @@
 'use strict';
 
-var front = angular.module('controllers.front', ['ngCordova.plugins.geolocation']);
+var front = angular.module('controllers.front', ['ngCordova.plugins.geolocation','ui.map','ui.event']);
 
 function initFactory($resource) {
   return $resource('/init');
@@ -14,10 +14,10 @@ function pingFactory($resource) {
 front.factory('Ping', ['$resource', pingFactory]);
 
 function Front($cordovaGeolocation, $scope, Init, Ping) {
-  $(window).resize(function(){
-    var height = $(window).height() - $('.directive').outerHeight() - $('.top-bar').outerHeight();
-    $('.map iframe').attr('height',height);
-  });
+  // $(window).resize(function(){
+  //   var height = $(window).height() - $('.directive').outerHeight() - $('.top-bar').outerHeight();
+  //   $('.map iframe').attr('height',height);
+  // });
   $scope.address;
   $scope.red = false;
   $scope.goAway = false;
@@ -75,32 +75,36 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
         $scope.red = true;
       }
     });
+
+    var ll;
+    $scope.mapOptions;
+    getCurrentPosition(function(err, result) {
+      if (err) {return err; }
+      ll = new google.maps.LatLng(parseFloat(result.lat), parseFloat(result.lng));
+      $scope.mapOptions = {
+        center: ll,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+    });
+
+    //Markers should be added after map is loaded
+    $scope.onMapIdle = function() {
+        if ($scope.myMarkers === undefined){    
+            var marker = new google.maps.Marker({
+                map: $scope.myMap,
+                position: ll
+            });
+            $scope.myMarkers = [marker, ];
+        }
+    };
+
+    $scope.markerClicked = function(m) {
+        window.alert("clicked");
+    };
   }
 
   //getCurrentPosition();
-
-  function initialize() {
-    var startpt = new google.maps.LatLng($scope.currentLat,$scope.currentLon);
-    var endpt = new google.maps.LatLng($scope.startLat,$scope.startLon);
-    var mapOptions = {
-      zoom: 4,
-      center: startpt
-    }
-    var map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
-
-    var marker1 = new google.maps.Marker({
-      position: startpt,
-      map: map,
-    });
-
-    var marker2 = new google.maps.Marker({
-      position: endpt,
-      map: map,
-    });
-  }
-  initialize();
-  google.maps.event.addDomListener(window, 'load', initialize);
-
 }
 
 

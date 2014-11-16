@@ -12,7 +12,9 @@
     "angular-http-auth": "*",
     "angular-bootstrap": "~0.7.0",
     "ngCordova": "~0.1.7-alpha",
-    "angularGeo": "*"
+    "angularGeo": "*",
+    "angular-ui-map": "*",
+    "angular-ui-utils": "*"
   },
   "devDependencies": {
   }
