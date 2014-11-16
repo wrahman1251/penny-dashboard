@@ -180,6 +180,14 @@ fieldset#actions {
     background: none !important;
 }
 
+.directive {
+    position: fixed;
+    width: 100%;
+    background: green;
+    height: 100px;
+    bottom: 0;
+}
+
 @media screen and (max-width: 600px) {
     body {
         font-size: 1.5em;
