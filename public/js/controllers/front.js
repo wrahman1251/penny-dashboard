@@ -35,8 +35,9 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
         currentLat: result.lat,
         currentLon: result.lng
       }, function(result) {
-        if (result.instructions) {
-          $scope.directions = result.instructions;
+        console.log(result);
+        if (result.directions) {
+          $scope.directions = result.directions;
         }
         if (result.beep && navigator.vibrate) {
           navigator.vibrate(2000);
@@ -56,7 +57,7 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
           address: $scope.address
         }, function(result) {
           console.log(result)
-          $scope.directions = result.instructions;
+          $scope.directions = result.directions;
           $scope.goAway = true;
           setInterval(function() {
             intervalPing();

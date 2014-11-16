@@ -39,7 +39,7 @@ function ping(req, res, next) {
         sendObj.beep = result.beep;
       }
       if (result.message) {
-        sendObj.instructions = result.message;
+        sendObj.directions = result.message;
       }
       res.send(sendObj);
     }
