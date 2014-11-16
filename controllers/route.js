@@ -34,7 +34,7 @@ function init(startCoords, endCoords) {
 		startplace = startCoords;
 	}
 
-	endlace = endCoords;
+	endplace = endCoords;
 	map.directions(startplace, endplace, result);
 	path = result.routes[0].legs[0].steps;
 	currstep = path[stepIdx];
@@ -42,8 +42,8 @@ function init(startCoords, endCoords) {
 
 //function
 //post geolocation info (header and lat/long)
-//compare against next step and current header of step
+//compare against next step's start latitude & longitude and current header of step
 //send out to imp update & myo buzz
-function {
+function sigHandler(){
 	
 }
