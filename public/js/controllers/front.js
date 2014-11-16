@@ -1,4 +1,4 @@
-'use strict';$
+'use strict';
 
 var front = angular.module('controllers.front', ['ngCordova.plugins.geolocation']);
 
@@ -18,9 +18,12 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
   $scope.goAway = false;
   $scope.grabDestination = function() {
     if ($scope.address != undefined) {
-      $scope.output = $scope.address.replace(' ','+');
-      alert($scope.output)
-      $scope.goAway = true;
+      Init.get({address: $scope.address.replace(' ','+')}, function(result) {
+        $scope.direction = result.message;
+        $scope.goAway = true;
+      }, function(err) {
+        $scope.error1 = err;
+      });
     } else {
       $scope.red = true;
     }
