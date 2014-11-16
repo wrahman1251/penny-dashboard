@@ -11,7 +11,8 @@
     "angular-route": "~1.2.0",
     "angular-http-auth": "*",
     "angular-bootstrap": "~0.7.0",
-    "ngCordova": "~0.1.7-alpha"
+    "ngCordova": "~0.1.7-alpha",
+    "angularGeo": "*"
   },
   "devDependencies": {
   }
