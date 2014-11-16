@@ -13,7 +13,7 @@ imp.turnOffRight();
 function init(req, res, next) {
   map.init(req.query.startLat, req.query.startLon, req.query.endLat, req.query.endLon, function(err, result) {
     if (err) { return next(err); }
-    res.send(result);
+    res.send({directions: result});
   });
 }
 
