@@ -159,6 +159,13 @@ input#submit {
     font-weight: 300;
     font-family: Open Sans, sans-serif;
 }
+input#submit:focus {
+    outline: none;
+}
+input#submit:hover {
+    background: rgb(57, 107, 237);
+    cursor: pointer;
+}
 
 .button {
     background: rgb(18, 205, 113);
