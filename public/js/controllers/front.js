@@ -40,8 +40,7 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
     $scope.goAway = false;
     $scope.error1 = null;
     $scope.directions = null;
-    $scope.map = { center: { latitude: parseFloat(results.lat), longitude: parseFloat(results.lng) }, zoom: 14 };
-    
+    $scope.map = { center: { latitude: results.lat, longitude: results.lng }, zoom: 14 };
     $scope.marker = {
       id: 0,
       coords: {
@@ -52,6 +51,7 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
       events: {
       }
     };
+
     var intervalPing = function() {
       getCurrentPosition(function(err, result) {
         if (err) { console.log(err); }
