@@ -41,6 +41,11 @@ a:hover {
     right: auto;
     width: 100%;
     background: rgb(31, 30, 30);
+    background: url(https://ununsplash.imgix.net/37/QAdTsSj8TOOWzlyLn3Rg_14248396556_aefcd9a926_o.jpg);
+    background: url(https://unsplash.imgix.net/reserve/OQx70jjBSLOMI5ackhxm_urbex-ppc-030.jpg);
+    background: url(../img/bg.jpg);
+    background-size: cover;
+    background-position: 57% center;
     z-index: 10;
 
     transition: all .25s linear;
@@ -52,6 +57,13 @@ a:hover {
 
 #intro.goAway {
     left: -200%;
+}
+
+#intro-bg {
+    background: rgba(31, 30, 30, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
 #intro form {
@@ -158,6 +170,7 @@ input#submit {
     margin-top: 1em;
     font-weight: 300;
     font-family: Open Sans, sans-serif;
+    -webkit-appearance: none;
 }
 input#submit:focus {
     outline: none;
