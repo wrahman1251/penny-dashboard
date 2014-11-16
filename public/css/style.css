@@ -130,7 +130,7 @@ fieldset {
     margin-top: 0.5em;
 }
 
-#origin, #destination {
+#destination {
     border: 0;
     padding: 0.5em 0.7em;
     display: block;
@@ -151,8 +151,20 @@ fieldset {
     outline-width: 2px;
 }
 
-fieldset#actions {
+input#submit {
+    font-size: 1em;
+    color: #fff;
+    border: none;
     margin-top: 1em;
+    font-weight: 300;
+    font-family: Open Sans, sans-serif;
+}
+input#submit:focus {
+    outline: none;
+}
+input#submit:hover {
+    background: rgb(57, 107, 237);
+    cursor: pointer;
 }
 
 .button {

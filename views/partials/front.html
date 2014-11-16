@@ -9,11 +9,7 @@
 			<fieldset id="inputs">
 				<!-- <input id="origin" type="text" placeholder="Start" value="Current Location">    -->
 				<input id="destination" ng-model="address"  ng-class="red ? 'red' : ''" type="text" placeholder="Destination" required>
-			</fieldset>
-			<fieldset id="actions">
-				<a id="submit" class="button" ng-click="grabDestination()">
-					Let's go
-				</a>
+				<input id="submit" type="submit" value="Let's go" class="button" ng-click="grabDestination()">
 			</fieldset>
 			<div>{{error1}}</div>
 		</form>
