@@ -1,8 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Princess+Sofia);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+
 body {
     margin: 0;
     color: #fff;
     text-align: center;
-    font-family: sans-serif;
+    font-family: Open Sans, sans-serif;
+    font-weight: 300;
     font-size: 2em;
 }
 .wrap {
@@ -11,24 +15,42 @@ body {
 a:hover {
     cursor: pointer;
     background: rgb(57, 107, 237) !important;
+
+    transition: all .15s linear;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -ms-transition: all .15s linear;
+    -o-transition: all .15s linear;
 }
 
 #intro {
     position: absolute;
     height: 100%;
     top: 0;
-    /* top: -100%; */
     left: 0;
     right: 0;
     background: rgb(31, 30, 30);
     padding-top: 4em;
+    z-index: 10;
+
+    transition: top .2s linear;
+    -webkit-transition: top .2s linear;
+    -moz-transition: top .2s linear;
+    -ms-transition: top .2s linear;
+    -o-transition: top .2s linear;
+}
+
+#intro.goAway {
+    top: -120%;
 }
 
 #intro h1 {
     display: inline;
+    font-family: Princess Sofia;
+    font-size: 3em;
 }
 
-#about {
+.about {
     background: rgb(18, 205, 113);
     border-radius: 100%;
     height: 1.2em;
@@ -37,25 +59,30 @@ a:hover {
     display: inline-block;
     position: relative;
     top: -.5em;
+    margin-left: .3em;
 }
-
 
 fieldset {
     border: 0;
     padding: 0;
-    max-width: 90%;
     margin:  0 auto;
-    margin-top: 1em;
+    margin-top: 0.5em;
 }
 
 #origin, #destination {
     border: 0;
-    padding: .5em 1em;
+    padding: 0.5em 0.7em;
     display: block;
-    margin: .1em auto;
+    margin: 0.3em auto;
     font-size: 1em;
-    width: 100%;
+    max-width: 320px;
     border-radius: 5px;
+    font-family: Open Sans, sans-serif;
+    font-weight: 300;
+}
+
+fieldset#actions {
+    margin-top: 1em;
 }
 
 .button {
@@ -67,9 +94,21 @@ fieldset {
 
 .top-bar {
     background: rgb(69, 170, 255);
+    background: rgb(18, 205, 113);
     overflow:hidden;
 }
 #back {
     float: left;
     font-size: 1.3em;
+    background: none !important;
+}
+.logo span {
+    font-family: Princess Sofia;
+}
+.top-bar .logo .about {
+    margin-top 1em;
+    float: right;
+    top: 0.3em;
+    font-size: .9em;
+    background: none !important;
 }

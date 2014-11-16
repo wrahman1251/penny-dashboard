@@ -1,9 +1,13 @@
 'use strict';
 
-var login = angular.module('controllers.front', []);
+var front = angular.module('controllers.front', []);
 
-function Front() {
+function Front($scope) {
   console.log('hello world');
+  $scope.goAway = false;
+  $scope.awayToggle = function() {
+ 	$scope.goAway = true;
+  }
 }
 
-login.controller('FrontCtrl', [Front])
+front.controller('FrontCtrl', ['$scope', Front]);

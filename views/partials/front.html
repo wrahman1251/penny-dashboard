@@ -1,28 +1,32 @@
 <div class="container">
-	<div class="wrap">
 
-		<form id="intro">
-			<h1>Penny Dash</h1>
-			<fieldset id="inputs">
-				<input id="origin" type="text" placeholder="Start">   
-				<input id="destination" type="password" placeholder="End" required>
-			</fieldset>
-			<fieldset id="actions">
-				<a id="submit" class="button">
-					Take me there
-				</a>
-				<a id="about">?</a>
-			</fieldset>
-		</form>
-
-		<nav class="top-bar">
-			<div class="wrap">
-				<a id="back">&#8592;</a>
-			</div>
-		</nav>
-		<div class="map">
-			<iframe src="https://mapsengine.google.com/map/u/0/embed?mid=zMDbJNohdfk0.kRytxkgJiWAg" width="100%" height="480"></iframe>
+	<form id="intro" ng-class="goAway ? 'goAway' : ''">
+		<div class="logo">
+			<h1>Dash</h1>
+			<a class="about">?</a>
 		</div>
+		<fieldset id="inputs">
+			<input id="origin" type="text" placeholder="Start">   
+			<input id="destination" type="text" placeholder="End" required>
+		</fieldset>
+		<fieldset id="actions">
+			<a id="submit" class="button" ng-click="goAway = true">
+				Take me there
+			</a>
+		</fieldset>
+	</form>
 
+	<nav class="top-bar">
+		<div class="wrap">
+			<a id="back" ng-click="goAway = false">&#8592;</a>
+			<div class="logo">
+				<span>Dash</span>
+				<a class="about">?</a>
+			</div>
+		</div>
+	</nav>
+	<div class="map">
+		<iframe src="https://mapsengine.google.com/map/u/0/embed?mid=zMDbJNohdfk0.kRytxkgJiWAg" width="100%" height="480"></iframe>
 	</div>
+
 </div>
