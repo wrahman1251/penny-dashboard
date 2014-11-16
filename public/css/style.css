@@ -183,8 +183,8 @@ fieldset#actions {
 .directive {
     position: fixed;
     width: 100%;
-    background: green;
-    height: 100px;
+    background: rgb(18, 205, 113);
+    padding: 1em 0;
     bottom: 0;
 }
 
