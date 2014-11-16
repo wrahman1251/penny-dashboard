@@ -15,10 +15,10 @@ function pingFactory($resource) {
 front.factory('Ping', ['$resource', pingFactory]);
 
 function Front($cordovaGeolocation, $scope, Init, Ping) {
-  // $(window).resize(function(){
-  //   var height = $(window).height() - $('.directive').outerHeight() - $('.top-bar').outerHeight();
-  //   $('.map iframe').attr('height',height);
-  // });
+  $(window).resize(function(){
+    var height = $(window).height() - $('.directive').outerHeight() - $('.top-bar').outerHeight();
+    $('.map iframe').attr('height',height);
+  });
   var getCurrentPosition = function(callback) {
     $cordovaGeolocation.getCurrentPosition().then(function(position) {
       callback(null, {
