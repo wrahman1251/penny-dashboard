@@ -1,37 +1,41 @@
 <div class="container">
 
-	<form id="intro" ng-class="goAway ? 'goAway' : ''">
-		<div class="logo">
-			<h1>Dash</h1>
-			<a class="about">?</a>
-		</div>
-		<fieldset id="inputs">
-			<input id="origin" type="text" placeholder="Start" value="Current Location">   
-			<input id="destination" type="text" placeholder="End" required>
-		</fieldset>
-		<fieldset id="actions">
-			<a id="submit" class="button" ng-click="goAway = true">
-				Take me there
-			</a>
-		</fieldset>
-	</form>
+	<div id="intro" ng-class="goAway ? 'goAway' : ''">
+		<form>
+			<div class="small-nav">
+				<h1 class="logo">Dash</h1>
+				<a class="aboutUs" ng-click="aboutOpen = true">?</a>
+			</div>
+			<fieldset id="inputs">
+				<input id="origin" type="text" placeholder="Start" value="Current Location">   
+				<input id="destination" type="text" placeholder="End" required>
+			</fieldset>
+			<fieldset id="actions">
+				<a id="submit" class="button" ng-click="goAway = true">
+					Let's go
+				</a>
+			</fieldset>
+		</form>
+	</div>
 
-	<div id="about">
-		<div class="logo">
-			<h1>Dash</h1>
-			<a class="about">?</a>
-		</div>
-		<div class="description">
-			Dash helps you navigate your every day, without staring at your phone screen. Stop looking up directions, let's go places.
+	<div id="about" ng-class="aboutOpen ? 'aboutOpen' : ''">
+		<div class="wrap">
+			<div class="small-nav">
+				<span class="logo">Dash</span>
+				<a class="aboutUs" ng-click="aboutOpen = false">X</a>
+			</div>
+			<div class="description">
+				Dash helps you navigate your every day, without staring at your phone screen. Stop looking up directions, let's go places.
+			</div>
 		</div>
 	</div>
 
 	<nav class="top-bar">
 		<div class="wrap">
 			<a id="back" ng-click="goAway = false">&#8592;</a>
-			<div class="logo">
-				<span>Dash</span>
-				<a class="about">?</a>
+			<div class="small-nav">
+				<span class="logo">Dash</span>
+				<a class="aboutUs" ng-click="aboutOpen = true">?</a>
 			</div>
 		</div>
 	</nav>
