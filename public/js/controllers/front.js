@@ -10,9 +10,15 @@ front.factory('Init', ['$resource', initFactory]);
 function pingFactory($resource) {
   return $resource('/ping');
 }
+
 front.factory('Ping', ['$resource', pingFactory]);
 
 function Front($cordovaGeolocation, $scope, Init, Ping) {
+  $(window).resize(function(){
+    var height = $(window).height() - $('.directive').outerHeight() - $('.top-bar').outerHeight();
+    $('.map iframe').attr('height',height);
+  });
+
   $scope.address;
   $scope.red = false;
   $scope.goAway = false;
@@ -74,6 +80,29 @@ function Front($cordovaGeolocation, $scope, Init, Ping) {
 
   //getCurrentPosition();
 
+  function initialize() {
+    var startpt = new google.maps.LatLng($scope.currentLat,$scope.currentLon);
+    var endpt = new google.maps.LatLng($scope.startLat,$scope.startLon);
+    var mapOptions = {
+      zoom: 4,
+      center: startpt
+    }
+    var map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+
+    var marker1 = new google.maps.Marker({
+      position: startpt,
+      map: map,
+    });
+
+    var marker2 = new google.maps.Marker({
+      position: endpt,
+      map: map,
+    });
+  }
+  initialize();
+  google.maps.event.addDomListener(window, 'load', initialize);
+
 }
+
 
 front.controller('FrontCtrl', ['$cordovaGeolocation', '$scope', 'Init', 'Ping', Front]);
