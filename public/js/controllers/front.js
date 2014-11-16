@@ -13,6 +13,19 @@ function pingFactory($resource) {
 front.factory('Ping', ['$resource', pingFactory]);
 
 function Front($cordovaGeolocation, $scope, Init, Ping) {
+  $scope.address;
+  $scope.red = false;
+  $scope.goAway = false;
+  $scope.grabDestination = function() {
+    if ($scope.address != undefined) {
+      $scope.output = $scope.address.replace(' ','+');
+      alert($scope.output)
+      $scope.goAway = true;
+    } else {
+      $scope.red = true;
+    }
+  }
+
   var getCurrentPositionAndPing = function() {
     $cordovaGeolocation.getCurrentPosition().then(function(position) {
       Ping.get({}, function(data) {

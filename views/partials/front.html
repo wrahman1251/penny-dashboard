@@ -8,10 +8,10 @@
 			</div>
 			<fieldset id="inputs">
 				<!-- <input id="origin" type="text" placeholder="Start" value="Current Location">    -->
-				<input id="destination" type="text" placeholder="Destination" required>
+				<input id="destination" ng-model="address"  ng-class="red ? 'red' : ''" type="text" placeholder="Destination" required>
 			</fieldset>
 			<fieldset id="actions">
-				<a id="submit" class="button" ng-click="goAway = true">
+				<a id="submit" class="button" ng-click="grabDestination()">
 					Let's go
 				</a>
 			</fieldset>
