@@ -1,49 +1,48 @@
-//var maps = require("/lib/map.js");
-var map = require('googlemaps');
+'use strict';
+(require('rootpath')());
 
+var map = require('lib/map');
+var imp = require('lib/electricImp');
+var timeout = require('config/settings/secrets').timeout;
+imp.turnOffLeft();
+imp.turnOffRight();
 
-//globals:
-//full path (just incase)
-//current path data (steps) initialized by endpoint initialization
-//current location (lat/long)
-//header
-var path;
-var currstep;
-var stepIdx = 0;
-var startplace, endplace;
-var lat, lng, head;
+//get request must have params: startLat, startLon, endLat, endLon
+//sends message to client with initial directions
 
-
-function getcurrPosition(latitude, longitude, heading) {
-	var geo = cordovaGeolocation.getCurrentPosition();
-	latitude = geo.coords.latitude;
-	longitued = geo.coords.longitude;
-	heading = geo.coords.heading;
+function init(req, res, next) {
+  map.init(req.query.startLat, req.query.startLon, req.query.endLat, req.query.endLon, function(err, result) {
+    if (err) { return next(err); }
+    res.send(result);
+  });
 }
 
-//endpoint initialization:
-//begin route
-//get begin (current location), endpoint, reset current path
-function init(startCoords, endCoords) {
-	if (startCoords == null) {
-		var startlat, startlng, heading;
-		getcurrPosition(startlat, startlng, heading);
-		startplace = '(' + startlat + ',' + startlng + ')';
-	}
-	else {
-		startplace = startCoords;
-	}
-
-	endplace = endCoords;
-	map.directions(startplace, endplace, result);
-	path = result.routes[0].legs[0].steps;
-	currstep = path[stepIdx];
+//send obj with fields beep and instructions
+function ping(req, res, next) {
+  map.ping(req.query.currentLat, req.query.currentLon, function(err, result) {
+    if (err) { return next(err); }
+    if (!result) {
+      res.send(null)
+    } else {
+      if (!result.leftOrRight) {
+        imp.turnOffLeft();
+        imp.turnOffRight();
+      } if (result.leftOrRight === 'left') {
+        imp.turnOnLeft();
+        setTimeout(function() {imp.turnOffLeft();}, timeout)
+      } else if (result.leftOrRight === 'right') {
+        imp.turnOnRight();
+        setTimeout(function() {imp.turnOffRight();}, timeout)
+      }
+      var sendObj = {};
+      if (result.beep) {
+        sendObj.beep = result.beep;
+      }
+      sendObj.instructions = result.message;
+      res.send(sendObj);
+    }
+  });
 }
 
-//function
-//post geolocation info (header and lat/long)
-//compare against next step's start latitude & longitude and current header of step
-//send out to imp update & myo buzz
-function sigHandler(){
-	
-}
+exports.init = init;
+exports.ping = ping;
