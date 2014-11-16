@@ -28,7 +28,7 @@ a:hover {
     width: 100%;
     position: absolute;
     left: 0;
-    top: 3px;
+    padding: 3px 0;
     pointer-events: none;
 }
 
@@ -41,8 +41,6 @@ a:hover {
     right: auto;
     width: 100%;
     background: rgb(31, 30, 30);
-    background: url(https://ununsplash.imgix.net/37/QAdTsSj8TOOWzlyLn3Rg_14248396556_aefcd9a926_o.jpg);
-    background: url(https://unsplash.imgix.net/reserve/OQx70jjBSLOMI5ackhxm_urbex-ppc-030.jpg);
     background: url(../img/bg.jpg);
     background-size: cover;
     background-position: 57% center;
@@ -84,7 +82,9 @@ a:hover {
 }
 
 #about {
-    background: rgb(18, 205, 113);
+    background: url(../img/bg.jpg);
+    background-size: cover;
+    background-position: 52% center;
     left: auto;
     right: auto;
     width: 100%;
@@ -96,6 +96,10 @@ a:hover {
     -moz-transition: all .25s linear;
     -ms-transition: all .25s linear;
     -o-transition: all .25s linear;
+}
+
+#about .logo {
+    background: rgb(18, 205, 113);
 }
 
 #about .wrap {
@@ -118,9 +122,17 @@ a:hover {
 
 #about .description {
     font-size: 1.2em;
-    margin-top: 1.5em;
+    margin-top: .5em;
+    padding-top: 1em;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    background: rgba(18, 205, 113, 0.8);
+    bottom: 0;
+    top: 1em;
+    background-size: cover;
+    background-position: center;
 }
-
 
 .aboutUs {
     background: rgb(18, 205, 113);
