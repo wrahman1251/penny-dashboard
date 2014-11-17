@@ -1,0 +1,12 @@
+http://localhost:3000/init1?startLat=40.3472894&startLon=-74.657003&endLat=40.3449501&endLon=-74.6507596
+http://localhost:3000/ping?currentLat=40.3467508&currentLon=-74.6569248
+http://localhost:3000/ping?currentLat=40.3467209&currentLon=-74.6572882
+http://localhost:3000/ping?currentLat=40.3464169&currentLon=-74.6568455
+http://localhost:3000/ping?currentLat=40.3463783&currentLon=-74.6568526
+http://localhost:3000/ping?currentLat=40.3460509&currentLon=-74.6559683
+http://localhost:3000/ping?currentLat=40.3458492&currentLon=-74.6559085
+http://localhost:3000/ping?currentLat=40.345616&currentLon=-74.6550474
+http://localhost:3000/ping?currentLat=40.3445167&currentLon=-74.6541769
+http://localhost:3000/ping?currentLat=40.3442933&currentLon=-74.65402809999999
+http://localhost:3000/ping?currentLat=40.3439859&currentLon=-74.6528275
+http://localhost:3000/ping?currentLat=40.3449501&currentLon=-74.6507596
