@@ -1,0 +1,1 @@
+phone ping server ping maps api (get direction) -> send to electric imp, flash led
