@@ -1,4 +1,4 @@
-~~~ Penny Skateboard Navigation Dashboard~~~
+~~~ Penny Board Navigation Dashboard~~~
 =========
 
 HackPrinceton Fall 2014 Awards
@@ -62,9 +62,6 @@ File structure:
         partial1.html
         partial2.html
     test/               --> mocha tests
-
-
-phone ping server ping maps api (get direction) -> send to electric imp, flash led
 
 
 
